@@ -19,7 +19,7 @@ const steps = [
 ];
 
 const Steps = () => (
-  <section className="steps section">
+  <section className="steps section" id="how-it-works">
     <div className="container">
       <h1>3 Easy Steps to Sell Your Car For Cash Anywhere</h1>
       <div className="steps__grid">

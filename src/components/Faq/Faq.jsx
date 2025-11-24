@@ -7,7 +7,7 @@ const faqs = [
     a: 'Yes. Get an instant online offer and schedule pick up as soon as today, often within a few hours.'
   },
   {
-    q: 'Where does Aziz Motors buy cars?',
+    q: 'Where does Asis Motors buy cars?',
     a: 'We buy cars nationwide in all 50 states with free towing in every metro area.'
   },
   {
@@ -33,7 +33,7 @@ const Faq = () => (
       <div className="faq__content">
         <h2>Frequently Asked Questions</h2>
         <p className="faq__subtitle">
-          Got questions? We have answers. Learn how Aziz Motors makes selling your car fast and hassle-free.
+          Got questions? We have answers. Learn how Asis Motors makes selling your car fast and hassle-free.
         </p>
         <div className="faq__list">
           {faqs.map((item) => (

@@ -4,21 +4,48 @@
 .offer-card {
   background: #4f7efd;
   border-radius: 24px;
-  padding: 28px;
+  padding: 0;
   box-shadow: 0 20px 40px rgba(20, 63, 140, 0.35);
   width: 360px;
   justify-self: center;
   color: white;
+  overflow: hidden;
 
-  h3 {
-    margin: 0 0 14px;
-    font-size: 22px;
+  &__tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  &__tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    &.is-active {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    padding: 20px 28px 28px;
   }
 
   label {
@@ -29,31 +56,89 @@
   }
 
   select {
-    margin-top: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 14px;
-    padding: 12px 14px;
+    margin-top: 0;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 40px 14px 16px;
     font-size: 15px;
     font-family: inherit;
-    appearance: none;
-    background: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235f6aa0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")
-      no-repeat right 14px center;
-    background-color: white;
-    color: $brand-dark;
+    background-color: rgba(255, 255, 255, 0.95);
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px;
+    color: #4b5563;
     font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:focus {
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
   }
 
-  button {
-    margin-top: 10px;
+  input[type="text"] {
+    margin-top: 0;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: 'Courier New', monospace;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4b5563;
+    font-weight: 500;
+    cursor: text;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    &:focus {
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+  }
+
+  &__button {
+    margin-top: 8px;
     border: none;
     background: linear-gradient(90deg, #00b35f, #04a155);
     color: white;
-    font-weight: 600;
-    border-radius: 18px;
-    padding: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 0 0 24px 24px;
+    padding: 16px 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     box-shadow: 0 18px 32px rgba(4, 161, 85, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 36px rgba(4, 161, 85, 0.5);
+    }
+  }
+
+  &__button-arrow {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
   }
 
   @include respond(mobile) {

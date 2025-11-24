@@ -1,31 +1,44 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import navLinks from '../../constants/navLinks';
+import useNavigationHandler from '../../hooks/useNavigationHandler';
 import './Header.scss';
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Locations', href: '#locations' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Log In', href: '#login' }
-];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const handleNavigation = useNavigationHandler();
+
+  const onNavClick = (event, link) => {
+    event.preventDefault();
+    setOpen(false);
+    handleNavigation(link);
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    navigate('/');
+  };
 
   return (
     <header className="header">
       <div className="header__inner container">
-        <div className="header__brand">
-          <img className="header__logo" src={logo} alt="Aziz Motors logo" />
+        <a href="/" onClick={handleLogoClick} className="header__brand">
+          <img className="header__logo" src={logo} alt="Asis Motors logo" />
           <div className="header__logo-text">
-            <span>Aziz</span> Motors
+            <span>Asis</span> Motors
           </div>
-        </div>
+        </a>
 
         <nav className={`header__nav ${open ? 'is-open' : ''}`}>
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href} onClick={() => setOpen(false)}>
+            <a
+              key={link.label}
+              href={link.path || `/#${link.sectionId}`}
+              onClick={(event) => onNavClick(event, link)}
+            >
               {link.label}
             </a>
           ))}

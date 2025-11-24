@@ -9,13 +9,13 @@
   position: relative;
   padding-top: 0;
   overflow: hidden;
-  background: linear-gradient(120deg, #5a8af7, #4f85ff);
+  background: #5286fe;
   color: white;
 
   &__bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2), transparent 55%);
+    background: transparent;
     pointer-events: none;
   }
 

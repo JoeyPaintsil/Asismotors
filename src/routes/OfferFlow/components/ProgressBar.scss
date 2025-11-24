@@ -1,0 +1,21 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.progress-bar {
+  margin-bottom: 0;
+
+  &__track {
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00b35f, #04a155);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+  }
+}
+
