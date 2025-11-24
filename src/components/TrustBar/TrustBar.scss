@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.trust-bar {
+  background: #f9fbff;
+  // background:red;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  &__inner {
+    @include flex-center(row, 26px);
+    flex-wrap: wrap;
+    justify-content: center;
+    color: $text-muted;
+    font-size: 16px;
+  }
+
+  .trust-bar.section {
+    padding-top: 15px;
+    padding-bottom: 0px;
+  }
+
+  strong {
+    color: $brand-dark;
+  }
+
+  &__stars {
+    color: #f7b500;
+    font-size: 18px;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__rating {
+    font-weight: 600;
+    color: $brand-dark;
+  }
+
+  &__badges {
+    @include flex-center(row, 10px);
+
+    .trust-bar__google {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      // border: 1px solid $card-border;
+      font-weight: 600;
+      color: $brand-dark;
+      text-decoration: underline;
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  &__pill {
+    font-weight: 600;
+    color: $brand-dark;
+  }
+}
+

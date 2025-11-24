@@ -1,0 +1,59 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.steps {
+  background: white;
+
+  h1 {
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 720px;
+    font-size: clamp(32px, 4vw, 42px);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.step-card {
+  background: #fcfdff;
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(143, 166, 210, 0.25);
+  box-shadow: 0 20px 40px rgba(35, 67, 129, 0.08);
+
+  &__icon {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+    }
+  }
+
+  h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+  }
+
+  p {
+    margin: 0;
+    color: $text-muted;
+  }
+}
+

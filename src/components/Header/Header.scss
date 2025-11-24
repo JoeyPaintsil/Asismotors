@@ -1,0 +1,116 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  width: 100%;
+  padding: 24px 20px 10px;
+  background: linear-gradient(120deg, #5a8af7, #5eb1ff);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  &__inner {
+    @include flex-center(row, 24px, center, space-between);
+  }
+
+  &__brand {
+    @include flex-center(row, 12px);
+    font-weight: 700;
+    font-size: 22px;
+    color: white;
+  }
+
+  &__logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  &__logo-text span {
+    font-weight: 800;
+  }
+
+  &__nav {
+    @include flex-center(row, 24px);
+
+    a {
+      font-size: 15px;
+      color: white;
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    cursor: pointer;
+    @include flex-center(column, 6px);
+
+    span {
+      width: 22px;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    &.is-active {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    @media (min-width: 901px) {
+      display: none !important;
+    }
+  }
+
+  @include respond(tablet) {
+    &__nav {
+      position: absolute;
+      right: 20px;
+      top: 80px;
+      padding: 18px 24px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: $shadow-card;
+      flex-direction: column;
+      align-items: flex-start;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      a {
+        color: $brand-dark;
+      }
+
+      &.is-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+    }
+
+    &__toggle {
+      display: flex;
+    }
+  }
+}
+

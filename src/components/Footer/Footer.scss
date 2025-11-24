@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background: linear-gradient(120deg, #5a8af7, #4f85ff);
+  color: white;
+  padding: 30px 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  &__links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: white;
+      font-size: 16px;
+    }
+  }
+
+  &__location {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  &__phone {
+    color: white;
+    font-weight: 600;
+  }
+
+  small {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+

@@ -1,0 +1,86 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.faq {
+  background: #f9fbff;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__visual {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      max-width: 480px;
+    }
+  }
+
+  h2 {
+    margin-bottom: 6px;
+    font-size: clamp(32px, 4vw, 44px);
+  }
+
+  &__subtitle {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: $text-muted;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    details {
+      border: 2px solid rgba(129, 150, 196, 0.2);
+      border-radius: 14px;
+      padding: 14px 8px 14px 18px;
+      background: white;
+      box-shadow: 0 15px 25px rgba(30, 59, 109, 0.08);
+
+      summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 16px;
+        color: $brand-dark;
+        list-style: none;
+        gap: 14px;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        &::after {
+          content: '+';
+          font-size: 22px;
+          font-weight: 600;
+          color: $brand-dark;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+        margin-top: 10px;
+        color: $text-muted;
+      }
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+  }
+}
+

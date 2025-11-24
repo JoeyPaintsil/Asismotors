@@ -1,0 +1,73 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sell-info {
+  background: white;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__highlight {
+    position: relative;
+    padding-right: 20px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  &__tagline {
+    font-weight: 600;
+    color: $brand-dark;
+  }
+
+  &__accent {
+    display: block;
+    width: 60px;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #79a5ff, #4b87ff);
+    margin-top: 20px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+
+    @include respond(mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__line {
+    width: 10px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #9cc9ff, #4b87ff);
+    flex-shrink: 0;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    p {
+      margin: 0;
+      color: $text-muted;
+      line-height: 1.7;
+
+      strong {
+        color: $brand-dark;
+      }
+    }
+  }
+}
+

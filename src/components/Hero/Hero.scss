@@ -1,0 +1,136 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  // height: 95vh;
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  background: linear-gradient(120deg, #5a8af7, #4f85ff);
+  color: white;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2), transparent 55%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    padding: 20px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 40px;
+    align-items: flex-start;
+
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__copy {
+    max-width: 560px;
+
+    h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05;
+      margin: 0 0 0px;
+    }
+  }
+
+  &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 0px;
+  }
+
+  &__phone {
+    font-weight: 600;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.7);
+  }
+
+  &__contact {
+    @include flex-center(row, 12px, center, flex-start);
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  &__contact-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    @include flex-center();
+    font-size: 18px;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    @include respond(tablet) {
+      justify-content: center;
+    }
+  }
+
+  &__illustration {
+    margin-top: 0px;
+
+    img {
+      width: min(520px, 100%);
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 25px 35px rgba(10, 34, 90, 0.25));
+    }
+  }
+
+  @include respond(tablet) {
+    &__copy {
+      text-align: center;
+    }
+
+    &__left {
+      align-items: center;
+    }
+
+    &__contact {
+      justify-content: center;
+    }
+
+    &__form-wrapper {
+      width: 100%;
+    }
+
+    &__illustration {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+

@@ -1,0 +1,62 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.why-choose {
+  background: #f9fbff;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 720px;
+    font-size: clamp(32px, 4vw, 42px);
+  }
+  h1 {
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: $text-muted;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.why-card {
+  background: white;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: $shadow-card;
+  border: 1px solid $card-border;
+  text-align: left;
+
+  &__icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+
+  p {
+    margin: 0;
+    color: $text-muted;
+  }
+}
+
