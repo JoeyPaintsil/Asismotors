@@ -12,7 +12,7 @@ const Hero = () => (
             <p className="hero__eyebrow">Get Quick Cash For Your Car</p>
             <h1>Sell your car ASAP </h1>
             <p className="hero__text">
-                With Azizi Motors, you can sell you car instantly for quick cash. No need 
+                With Aziz Motors, you can sell you car instantly for quick cash. No need 
                 to worry about deliverying your car. We tow your car away completely free!!
                 No hassle, no stress, just quick cash in your pocket. Get an <b>instant</b> offer for your car today!
                 <br></br>Call{' '}
