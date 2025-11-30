@@ -72,6 +72,18 @@ const About = () => (
         </div>
       </section>
 
+      <section className="about__cta">
+        <div className="container about__cta-inner">
+          <div>
+            <p className="eyebrow">Need to sell fast?</p>
+            <h2>Tell us about your car and get a guaranteed offer in minutes.</h2>
+          </div>
+          <a href="/#offer" className="about__cta-button">
+            Start my offer
+          </a>
+        </div>
+      </section>
+
       <section className="about__values section">
         <div className="container about__values-inner">
           <div>
@@ -84,18 +96,6 @@ const About = () => (
             <li>Respect for your time—average visit under 15 minutes</li>
             <li>Paperwork handled start to finish, even without a title</li>
           </ul>
-        </div>
-      </section>
-
-      <section className="about__cta">
-        <div className="container about__cta-inner">
-          <div>
-            <p className="eyebrow">Need to sell fast?</p>
-            <h2>Tell us about your car and get a guaranteed offer in minutes.</h2>
-          </div>
-          <a href="/#offer" className="about__cta-button">
-            Start my offer
-          </a>
         </div>
       </section>
     </main>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import favicon from '../../assets/favicon.png';
-import logo from '../../assets/logo.png';
+import faviconBlack from '../../assets/favicon_black.png';
 import './Login.scss';
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
   const isSignIn = mode === 'signin';
   const title = isSignIn ? 'Sign in' : 'Create an account';
   const cta = isSignIn ? 'Sign in with Google' : 'Sign up with Google';
-  const emblem = isSignIn ? logo : favicon;
+  const emblem = isSignIn ? faviconBlack : favicon;
 
   return (
     <div className="login-page">

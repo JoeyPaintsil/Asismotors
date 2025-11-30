@@ -1,3 +1,6 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .how-page {
   background: #f7f9fd;
   min-height: 100vh;
@@ -8,8 +11,12 @@
 }
 
 .how__hero {
-  background: linear-gradient(135deg, #eef4ff, #d6e4ff);
+  background: $hero-bg;
   padding: 72px 0;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .how__hero-inner {
@@ -33,7 +40,7 @@
   justify-content: center;
   padding: 0.85rem 1.75rem;
   border-radius: 999px;
-  background: #1671f8;
+  background: $blue-light;
   color: #fff;
   font-weight: 600;
   text-decoration: none;
@@ -83,7 +90,7 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.8rem;
-  color: #1671f8;
+  color: $blue-light;
   margin-bottom: 0.5rem;
 }
 
@@ -112,9 +119,14 @@
 }
 
 .how__cta-banner {
-  background: linear-gradient(120deg, #0f1c3d, #163a7d);
-  color: #fff;
+  background: $hero-bg;
+  color: $brand-dark;
   padding: 70px 0;
+  margin-bottom: 60px; // Space before footer
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .how__cta-content {
@@ -126,8 +138,8 @@
 }
 
 .how__cta--light {
-  background: #fff;
-  color: #0f1c3d;
+  background: $blue-light;
+  color: #fff;
 }
 
 @media (max-width: 640px) {

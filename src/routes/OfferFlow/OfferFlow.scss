@@ -65,7 +65,7 @@
   }
 
   &__toggle-input:checked + &__toggle-slider {
-    background-color: #1671f8;
+    background-color: $blue-light;
   }
 
   &__toggle-input:checked + &__toggle-slider::before {

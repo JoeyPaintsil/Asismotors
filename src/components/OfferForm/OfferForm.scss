@@ -2,10 +2,10 @@
 @use '../../styles/mixins' as *;
 
 .offer-card {
-  background: #4f7efd;
+  background: $blue-light;
   border-radius: 24px;
   padding: 0;
-  box-shadow: 0 20px 40px rgba(20, 63, 140, 0.35);
+  box-shadow: 0 20px 40px rgba(10, 38, 71, 0.35);
   width: 360px;
   justify-self: center;
   color: white;
@@ -46,6 +46,45 @@
     flex-direction: column;
     gap: 12px;
     padding: 20px 28px 28px;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    // Custom scrollbar styling to match the blue background
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    // Firefox scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+
+  &__section-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 16px 0 8px;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   label {
@@ -83,21 +122,38 @@
       outline: 2px solid rgba(255, 255, 255, 0.5);
       outline-offset: 2px;
     }
+
+    // Make year dropdown scrollable with max height
+    option {
+      padding: 8px 12px;
+    }
   }
 
-  input[type="text"] {
-    margin-top: 0;
+  // Specific styling for year dropdown to ensure scrollability
+  label:has(select[value=""]) + label:has(select:first-of-type),
+  .offer-card__form > label:nth-of-type(2) select {
+    // This ensures the dropdown list is scrollable when opened
+    // The browser handles scrolling automatically, but we ensure it works
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    margin-top: 6px;
     border: none;
     border-radius: 12px;
     padding: 14px 16px;
     font-size: 15px;
-    font-family: 'Courier New', monospace;
+    font-family: inherit;
     background-color: rgba(255, 255, 255, 0.95);
     color: #4b5563;
     font-weight: 500;
     cursor: text;
-    letter-spacing: 1px;
     transition: all 0.2s ease;
+
+    &[type="text"] {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+    }
 
     &::placeholder {
       color: #9ca3af;
@@ -107,6 +163,12 @@
     &:focus {
       outline: 2px solid rgba(255, 255, 255, 0.5);
       outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: rgba(255, 255, 255, 0.7);
     }
   }
 
@@ -118,7 +180,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-radius: 0 0 24px 24px;
+    border-radius: 12px;
     padding: 16px 20px;
     cursor: pointer;
     font-size: 14px;
@@ -129,9 +191,14 @@
     gap: 8px;
     transition: all 0.2s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       transform: translateY(-1px);
       box-shadow: 0 20px 36px rgba(4, 161, 85, 0.5);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
     }
   }
 
@@ -139,6 +206,72 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
+  }
+
+  &__error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #fee2e2;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  &__response {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &__response-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__response-content {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    color: #e5e7eb;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    // Firefox scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2);
   }
 
   @include respond(mobile) {

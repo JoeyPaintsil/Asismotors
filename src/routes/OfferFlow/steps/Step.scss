@@ -44,7 +44,7 @@
     transition: all 0.2s ease;
 
     &:focus-within {
-      border-color: #1671f8;
+      border-color: $blue-light;
       box-shadow: 0 0 0 3px rgba(22, 113, 248, 0.1);
     }
   }
@@ -117,7 +117,7 @@
     padding: 12px 14px;
     background: #eff6ff;
     border-radius: 12px;
-    border-left: 4px solid #1671f8;
+    border-left: 4px solid $blue-light;
     text-align: left;
     align-items: flex-start;
 
@@ -205,7 +205,7 @@
     transition: all 0.2s ease;
 
     &:hover {
-      border-color: #1671f8;
+      border-color: $blue-light;
       background: #f9fafb;
     }
 
@@ -213,7 +213,7 @@
       width: 20px;
       height: 20px;
       cursor: pointer;
-      accent-color: #1671f8;
+      accent-color: $blue-light;
     }
 
 
@@ -228,7 +228,7 @@
     }
 
     &:has(input[type="radio"]:checked) {
-      border-color: #1671f8;
+      border-color: $blue-light;
       background: #eff6ff;
     }
   }
@@ -312,7 +312,7 @@
 
     &:focus {
       outline: none;
-      border-color: #1671f8;
+      border-color: $blue-light;
       box-shadow: 0 0 0 3px rgba(22, 113, 248, 0.1);
     }
 
@@ -335,8 +335,8 @@
     margin-top: 4px;
 
     &:hover {
-      border-color: #1671f8;
-      color: #1671f8;
+      border-color: $blue-light;
+      color: $blue-light;
       background: #f9fafb;
     }
 
@@ -392,7 +392,7 @@
     text-align: center;
 
     a {
-      color: #1671f8;
+      color: $blue-light;
       text-decoration: none;
 
       &:hover {

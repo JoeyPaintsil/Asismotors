@@ -39,7 +39,7 @@ a {
   letter-spacing: 0.2em;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #1671f8;
+  color: $blue-light;
   margin-bottom: 0.75rem;
 }
 
@@ -61,5 +61,17 @@ a {
   max-width: $container-width;
   margin: 0 auto;
   width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include respond(tablet) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include respond(mobile) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 

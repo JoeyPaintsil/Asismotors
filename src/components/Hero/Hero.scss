@@ -1,16 +1,13 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
 .hero {
   // height: 95vh;
   position: relative;
   padding-top: 0;
   overflow: hidden;
-  background: #5286fe;
-  color: white;
+  background: $hero-bg;
+  color: $brand-dark;
 
   &__bg {
     position: absolute;

@@ -1,3 +1,6 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .about-page {
   background: #f7f9fd;
 }
@@ -8,7 +11,11 @@
 
 .about__hero {
   padding: 80px 0;
-  background: linear-gradient(135deg, #eef4ff, #fdfbfd);
+  background: $hero-bg;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .about__hero-inner {
@@ -80,8 +87,14 @@
 }
 
 .about__values {
-  background: #0f172a;
-  color: #fff;
+  background: #fff;
+  color: $brand-dark;
+  margin-top: 0;
+  padding-top: 60px; // White space above the section
+  
+  &.section {
+    padding-bottom: 60px; // Space before footer
+  }
 }
 
 .about__values-inner {
@@ -108,12 +121,17 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #fcd34d;
+  color: $blue-light;
 }
 
 .about__cta {
-  background: #fff;
+  background: $hero-bg;
   padding: 72px 0;
+  margin-bottom: 0;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .about__cta-inner {
@@ -123,14 +141,14 @@
   gap: 2rem;
   flex-wrap: wrap;
   border-radius: 32px;
-  background: linear-gradient(120deg, #1671f8, #60a5fa);
-  color: #fff;
+  background: transparent;
+  color: $brand-dark;
   padding: 2.5rem;
 }
 
 .about__cta-button {
-  background: #fff;
-  color: #0f1c3d;
+  background: $blue-light;
+  color: #fff;
   padding: 1rem 2rem;
   border-radius: 999px;
   font-weight: 600;
