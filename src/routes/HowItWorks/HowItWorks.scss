@@ -13,6 +13,10 @@
 .how__hero {
   background: $hero-bg;
   padding: 72px 0;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .how__hero-inner {
@@ -119,6 +123,10 @@
   color: $brand-dark;
   padding: 70px 0;
   margin-bottom: 60px; // Space before footer
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .how__cta-content {

@@ -12,6 +12,10 @@
 .contact__hero {
   background: $hero-bg;
   padding: 80px 0;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .contact__hero-inner {
@@ -81,6 +85,10 @@
   padding: 80px 0;
   background: #0f1c3d;
   color: #fff;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .contact__form-inner {

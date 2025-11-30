@@ -12,6 +12,10 @@
 .about__hero {
   padding: 80px 0;
   background: $hero-bg;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .about__hero-inner {
@@ -124,6 +128,10 @@
   background: $hero-bg;
   padding: 72px 0;
   margin-bottom: 0;
+
+  @include respond(mobile) {
+    padding: 60px 0;
+  }
 }
 
 .about__cta-inner {

@@ -18,8 +18,6 @@ body {
   min-height: 100vh;
   background-color: #f4f5f8;
   color: $brand-dark;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 img {
@@ -63,12 +61,17 @@ a {
   max-width: $container-width;
   margin: 0 auto;
   width: 100%;
-}
+  padding-left: 16px;
+  padding-right: 16px;
 
-// Ensure text doesn't overflow on mobile
-h1, h2, h3, h4, h5, h6, p, span, a, li {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  @include respond(tablet) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include respond(mobile) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
