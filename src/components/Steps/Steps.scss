@@ -9,6 +9,11 @@
     margin: 0 auto 40px;
     max-width: 720px;
     font-size: clamp(32px, 4vw, 42px);
+
+    @include respond(mobile) {
+      margin-bottom: 32px;
+      font-size: clamp(28px, 6vw, 32px);
+    }
   }
 
   &__grid {
@@ -18,10 +23,12 @@
 
     @include respond(tablet) {
       grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     @include respond(mobile) {
       grid-template-columns: 1fr;
+      gap: 16px;
     }
   }
 }
@@ -34,26 +41,50 @@
   border: 1px solid rgba(143, 166, 210, 0.25);
   box-shadow: 0 20px 40px rgba(35, 67, 129, 0.08);
 
+  @include respond(mobile) {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
   &__icon {
     margin-bottom: 16px;
     display: flex;
     justify-content: center;
 
+    @include respond(mobile) {
+      margin-bottom: 12px;
+    }
+
     img {
       width: 68px;
       height: 68px;
       object-fit: contain;
+
+      @include respond(mobile) {
+        width: 56px;
+        height: 56px;
+      }
     }
   }
 
   h3 {
     margin: 0 0 12px;
     font-size: 20px;
+
+    @include respond(mobile) {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
   }
 
   p {
     margin: 0;
     color: $text-muted;
+    font-size: 15px;
+
+    @include respond(mobile) {
+      font-size: 14px;
+    }
   }
 }
 

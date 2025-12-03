@@ -12,6 +12,11 @@
 
     @include respond(tablet) {
       grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @include respond(mobile) {
+      gap: 24px;
     }
   }
 
@@ -28,6 +33,10 @@
   h2 {
     margin-bottom: 6px;
     font-size: clamp(32px, 4vw, 44px);
+
+    @include respond(mobile) {
+      font-size: clamp(24px, 6vw, 32px);
+    }
   }
 
   &__subtitle {
@@ -48,6 +57,11 @@
       background: white;
       box-shadow: 0 15px 25px rgba(30, 59, 109, 0.08);
 
+      @include respond(mobile) {
+        padding: 12px 8px 12px 16px;
+        border-radius: 12px;
+      }
+
       summary {
         display: flex;
         justify-content: space-between;
@@ -58,6 +72,11 @@
         color: $brand-dark;
         list-style: none;
         gap: 14px;
+
+        @include respond(mobile) {
+          font-size: 15px;
+          gap: 12px;
+        }
 
         &::-webkit-details-marker {
           display: none;

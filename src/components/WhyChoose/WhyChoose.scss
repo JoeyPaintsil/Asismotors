@@ -10,6 +10,11 @@
     margin: 0 auto 40px;
     max-width: 720px;
     font-size: clamp(32px, 4vw, 42px);
+
+    @include respond(mobile) {
+      margin-bottom: 32px;
+      font-size: clamp(28px, 6vw, 32px);
+    }
   }
   h1 {
     margin-bottom: 12px;
@@ -28,10 +33,12 @@
 
     @include respond(tablet) {
       grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     @include respond(mobile) {
       grid-template-columns: 1fr;
+      gap: 16px;
     }
   }
 }
@@ -44,19 +51,39 @@
   border: 1px solid $card-border;
   text-align: left;
 
+  @include respond(mobile) {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
   &__icon {
     font-size: 30px;
     margin-bottom: 12px;
+
+    @include respond(mobile) {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
   }
 
   h3 {
     margin: 0 0 10px;
     font-size: 18px;
+
+    @include respond(mobile) {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
   }
 
   p {
     margin: 0;
     color: $text-muted;
+    font-size: 15px;
+
+    @include respond(mobile) {
+      font-size: 14px;
+    }
   }
 }
 

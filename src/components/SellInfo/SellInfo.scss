@@ -11,6 +11,11 @@
 
     @include respond(tablet) {
       grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @include respond(mobile) {
+      gap: 24px;
     }
   }
 
@@ -21,6 +26,10 @@
 
   h2 {
     margin-top: 0;
+
+    @include respond(mobile) {
+      font-size: clamp(24px, 6vw, 28px);
+    }
   }
 
   &__tagline {
@@ -44,6 +53,7 @@
 
     @include respond(mobile) {
       flex-direction: column;
+      gap: 16px;
     }
   }
 

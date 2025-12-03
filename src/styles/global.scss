@@ -18,6 +18,9 @@ body {
   min-height: 100vh;
   background-color: #f4f5f8;
   color: $brand-dark;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -72,6 +75,7 @@ a {
   @include respond(mobile) {
     padding-left: 16px;
     padding-right: 16px;
+    max-width: 100%;
   }
 }
 

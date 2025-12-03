@@ -10,7 +10,7 @@ const Hero = () => (
         <div className="hero__left">
           <div className="hero__copy">
             <p className="hero__eyebrow">Get Quick Cash For Your Car</p>
-            <h1>Sell your car ASAP </h1>
+            <h1>Sell your car A$AP </h1>
             <p className="hero__text">
                 With Asis Motors, you can sell you car instantly for quick cash. No need 
                 to worry about deliverying your car. We tow your car away completely free!!
