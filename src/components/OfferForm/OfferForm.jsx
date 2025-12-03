@@ -133,6 +133,10 @@ const OfferForm = () => {
 
   return (
     <div className="offer-card">
+      <div className="offer-card__header">
+        <h2 className="offer-card__title">Get Your Instant Quote</h2>
+        <p className="offer-card__subtitle">Fill out the form below to get started.</p>
+      </div>
       <form className="offer-card__form" onSubmit={handleGetOffer}>
         <h3 className="offer-card__section-title">Vehicle Information</h3>
         
@@ -343,8 +347,8 @@ const OfferForm = () => {
         )}
 
         <button type="submit" className="offer-card__button" disabled={loading}>
-          {loading ? 'GETTING QUOTE...' : 'GET AN INSTANT OFFER'}
-          {!loading && <span className="offer-card__button-arrow">→</span>}
+          {loading ? 'GETTING QUOTE...' : 'Get My Instant Quote'}
+          {!loading && <span className="offer-card__button-icon">⚡</span>}
         </button>
 
         {apiResponse && (
