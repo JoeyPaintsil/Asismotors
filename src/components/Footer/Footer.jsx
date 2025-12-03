@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer__inner">
-        <h2 className="footer__brand">Asis Motors</h2>
+        <h2 className="footer__brand">Asismotor</h2>
         <div className="footer__links">
           {navLinks.map((link) => (
             <a
@@ -29,7 +29,7 @@ const Footer = () => {
         <a className="footer__phone" href="tel:678-456-8732">
           (678) 456-8732
         </a>
-        <small>© 2025 Asis Motors. All rights reserved.</small>
+        <small>© 2025 Asismotor. All rights reserved.</small>
       </div>
     </footer>
   );

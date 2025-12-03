@@ -3,7 +3,7 @@ import './WhyChoose.scss';
 const perks = [
   {
     title: 'A Decade of Experience',
-    text: 'Asis Motors has purchased thousands of vehicles since 2009.',
+    text: 'Asismotor has purchased thousands of vehicles since 2009.',
     icon: '🗓️'
   },
   {
@@ -36,7 +36,7 @@ const perks = [
 const WhyChoose = () => (
   <section className="why-choose section" id="locations">
     <div className="container">
-      <h1>Why Choose Asis Motors?</h1>
+      <h1>Why Choose Asismotor?</h1>
       <p className="why-choose__subtitle">We pride ourselves on trustworthiness and expertise.</p>
       <div className="why-choose__grid">
         {perks.map((perk) => (

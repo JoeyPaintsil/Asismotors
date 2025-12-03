@@ -5,7 +5,7 @@ import './About.scss';
 const storyPanels = [
   {
     title: 'Neighbors first, dependable always',
-    text: 'We launched Asis Motors from a single driveway in Cumming, GA helping neighbors sell cars the same day. Word spread because we show up when we say we will, keep every promise in writing, and treat every pickup like helping a friend.',
+    text: 'We launched Asismotor from a single driveway in Cumming, GA helping neighbors sell cars the same day. Word spread because we show up when we say we will, keep every promise in writing, and treat every pickup like helping a friend.',
     image: 'https://img.freepik.com/premium-photo/tow-truck-public-road-tow-truck-with-broken-car-country-road-tow-truck-transporting-car-highway-car-service-transportation-concept_782515-6725.jpg'
   },
   {
@@ -15,7 +15,7 @@ const storyPanels = [
   },
   {
     title: 'People-first pickup experience',
-    text: 'Every Asis Motors buyer is background-checked and trained to handle paperwork, titles, and even tricky DMV scenarios. We tow for free, pay on the spot, and update you by text the whole way.',
+    text: 'Every Asismotor buyer is background-checked and trained to handle paperwork, titles, and even tricky DMV scenarios. We tow for free, pay on the spot, and update you by text the whole way.',
     image: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?auto=format&fit=crop&w=900&q=80'
   }
 ];
@@ -33,10 +33,10 @@ const About = () => (
       <section className="about__hero">
         <div className="container about__hero-inner">
           <div>
-            <p className="eyebrow">About Asis Motors</p>
+            <p className="eyebrow">About Asismotor</p>
             <h1>We help drivers move on faster.</h1>
             <p>
-              Asis Motors is a team of car buyers, pricing analysts, and support specialists obsessed with making it easy
+              Asismotor is a team of car buyers, pricing analysts, and support specialists obsessed with making it easy
               to sell any vehicle for top dollar—without dealerships or lowball offers.
             </p>
             <div className="about__stat-row">
@@ -50,7 +50,7 @@ const About = () => (
           </div>
           <img
             src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80"
-            alt="Asis Motors team celebrating"
+            alt="Asismotor team celebrating"
           />
         </div>
       </section>
