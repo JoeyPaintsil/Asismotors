@@ -24,7 +24,7 @@ const Locations = () => (
             <p className="eyebrow">Our Locations</p>
             <h1>We Buy Cars From All Around the USA</h1>
             <p>
-              Asismotor purchases vehicles from locations across the United States. 
+              As-is Motor purchases vehicles from locations across the United States. 
               Whether you're in a major city or a small town, we're here to help you 
               sell your car quickly and easily.
             </p>
@@ -40,10 +40,14 @@ const Locations = () => (
           </p>
           <div className="locations__grid">
             {usStates.map((state) => (
-              <div key={state} className="locations__state">
+              <a 
+                key={state} 
+                href="/#offer" 
+                className="locations__state"
+              >
                 <span className="locations__chevron">›</span>
                 <span className="locations__state-name">{state}</span>
-              </div>
+              </a>
             ))}
           </div>
         </div>

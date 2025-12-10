@@ -31,7 +31,7 @@ const OfferFlow = () => {
     firstName: '',
     phone: '',
     email: '',
-    contactMethods: { call: false, text: false, sms: false }
+    contactMethods: { call: false, text: false, email: false }
   });
 
   // Update answer for a specific question

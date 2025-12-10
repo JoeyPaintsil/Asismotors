@@ -26,9 +26,9 @@ const Header = () => {
     <header className="header">
       <div className="header__inner container">
         <a href="/" onClick={handleLogoClick} className="header__brand">
-          <img className="header__logo" src={logo} alt="Asismotor logo" />
+          <img className="header__logo" src={logo} alt="As-is Motor logo" />
           <div className="header__logo-text">
-            Asismotor
+            As-is Motor
           </div>
         </a>
 

@@ -89,9 +89,13 @@
   border-bottom: 1px solid #e5e7eb;
   border-right: 1px solid #e5e7eb;
   transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 
   &:hover {
     background-color: #f9fafb;
+    color: $blue-light;
   }
 
   @include respond(mobile) {

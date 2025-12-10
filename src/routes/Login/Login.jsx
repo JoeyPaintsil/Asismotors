@@ -18,13 +18,13 @@ const Login = () => {
       <Header />
       <main className="login">
         <div className="login__card">
-          <img src={emblem} alt="Asismotor logo" className="login__logo" />
+          <img src={emblem} alt="As-is Motor logo" className="login__logo" />
           <p className="login__subtitle">
             {isSignIn ? (
               'Welcome back'
             ) : (
               <>
-                Join <span className="login__brand-accent">Asismotor</span>
+                Join <span className="login__brand-accent">As-is Motor</span>
               </>
             )}
           </p>

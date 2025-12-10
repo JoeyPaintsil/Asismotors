@@ -12,12 +12,12 @@ const journeySections = [
   },
   {
     title: 'Lock in pickup on your schedule',
-    text: 'Pick a time that works—even same day. A verified Asismotor field agent meets you anywhere (home, office, storage) with paperwork in hand and free towing already included.',
+    text: 'Pick a time that works—even same day. A verified As-is Motor field agent meets you anywhere (home, office, storage) with paperwork in hand and free towing already included.',
     image: 'schedule_meeting.jpg'
   },
   {
     title: 'Hand off keys, get paid instantly',
-    text: 'We pay the agreed amount on the spot with digital transfer or cashier’s check before the truck pulls away. No renegotiations, no surprise fees.',
+    text: 'We pay by cash or check at pickup time. All payments are fully backed and guaranteed.',
     image: 'https://www.npchevy.com/blogs/7362/wp-content/uploads/2022/04/515ab308c84e4371b53ee33d676e6b62-1536x1024.jpg'
   }
 ];
@@ -35,10 +35,10 @@ const HowItWorks = () => (
       <section className="how__hero">
         <div className="container how__hero-inner">
           <div>
-            <p className="eyebrow">How Asismotor Works</p>
+            <p className="eyebrow">How As-is Motor Works</p>
             <h1>Instant offers. Doorstep pickup. Cash before the tow truck leaves.</h1>
             <p>
-              Skip listings and strangers. Asismotor pairs smart pricing tech with real humans who pick up your car,
+              Skip listings and strangers. As-is Motor pairs smart pricing tech with real humans who pick up your car,
               complete the paperwork, and pay you immediately.
             </p>
             <a href="/#offer" className="how__cta">
@@ -70,7 +70,7 @@ const HowItWorks = () => (
       <section className="how__perks section">
         <div className="container how__perks-inner">
           <div>
-            <h2>Why drivers trust Asismotor</h2>
+            <h2>Why drivers trust As-is Motor</h2>
             <p>We have purchased many vehicles nationwide with many five-star reviews.</p>
           </div>
           <div className="perks-grid">

@@ -9,7 +9,7 @@ const Contact = () => (
       <section className="contact__hero">
         <div className="container contact__hero-inner">
           <div className="contact__hero-copy">
-            <p className="eyebrow">Contact Asismotor</p>
+            <p className="eyebrow">Contact As-is Motor</p>
             <h1>Talk to a real offer specialist any time.</h1>
             <p>
               Call, text, or email us for paperwork help, pickup updates, or large fleet quotes. Our average response
@@ -28,7 +28,7 @@ const Contact = () => (
           </div>
           <img
             src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="Asismotor support team"
+            alt="As-is Motor support team"
           />
         </div>
       </section>

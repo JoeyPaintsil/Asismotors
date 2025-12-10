@@ -24,7 +24,7 @@ const points = [
   {
     title: 'Cash For Cars',
     description:
-      'Selling your car with Asismotor is fast because we can pay cash on the spot with one simple phone call.'
+      'Selling your car with As-is Motor is fast because we can pay cash on the spot with one simple phone call.'
   }
 ];
 
@@ -33,7 +33,7 @@ const SellInfo = () => (
     <div className="container sell-info__inner">
       <div className="sell-info__highlight">
         <h1>How to Sell Your Car Online Fast</h1>
-        <p className="sell-info__tagline">Asismotor is the fastest way to sell your car anywhere.</p>
+        <p className="sell-info__tagline">As-is Motor is the fastest way to sell your car anywhere.</p>
         <span className="sell-info__accent" />
       </div>
       <div className="sell-info__list">
