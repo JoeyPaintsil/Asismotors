@@ -1,0 +1,175 @@
+{
+  "questions": [
+    {
+      "category": "Title and Ownership",
+      "questions": [
+        {
+          "id": "title_clean",
+          "text": "Do you have a clean and clear title for the vehicle?",
+          "type": "yes_no"
+        },
+        {
+          "id": "title_salvage",
+          "text": "Is the title for this vehicle listed as salvage or reconstructed?",
+          "type": "yes_no"
+        },
+        {
+          "id": "title_missing",
+          "text": "Are you currently missing the vehicle's title?",
+          "type": "yes_no"
+        },
+        {
+          "id": "title_liens",
+          "text": "Does the vehicle have any outstanding liens that haven't been resolved?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Wheels and Tires",
+      "questions": [
+        {
+          "id": "tires_inflated",
+          "text": "Are all the tires on the vehicle properly inflated and securely mounted?",
+          "type": "yes_no"
+        },
+        {
+          "id": "tires_flat",
+          "text": "Are any of the tires flat or deflated?",
+          "type": "yes_no"
+        },
+        {
+          "id": "wheel_missing",
+          "text": "Is any wheel missing from the vehicle?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Mechanical Condition",
+      "questions": [
+        {
+          "id": "mechanical_runs",
+          "text": "Does the vehicle start and run without issues?",
+          "type": "yes_no"
+        },
+        {
+          "id": "mechanical_starts_no_drive",
+          "text": "Does the vehicle start, but fail to move or drive?",
+          "type": "yes_no"
+        },
+        {
+          "id": "mechanical_no_start",
+          "text": "Is the vehicle unable to start or operate?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Odometer Reading",
+      "questions": [
+        {
+          "id": "odometer_mileage",
+          "text": "What is the current mileage on the vehicle?",
+          "type": "number"
+        },
+        {
+          "id": "odometer_unknown",
+          "text": "Can you not confirm the vehicle's mileage at this time?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Exterior Damage",
+      "questions": [
+        {
+          "id": "exterior_no_damage",
+          "text": "Is the vehicle free from any significant external damage?",
+          "type": "yes_no"
+        },
+        {
+          "id": "exterior_has_damage",
+          "text": "Does the vehicle have noticeable damage or wear?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Exterior Parts",
+      "questions": [
+        {
+          "id": "parts_attached",
+          "text": "Are all body panels fully attached and securely in place?",
+          "type": "yes_no"
+        },
+        {
+          "id": "parts_missing",
+          "text": "Are there any loose, detached, or missing body panels on the vehicle?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Lights and Glass",
+      "questions": [
+        {
+          "id": "lights_intact",
+          "text": "Are all lights, mirrors, and windows intact, with no cracks or missing parts?",
+          "type": "yes_no"
+        },
+        {
+          "id": "lights_broken",
+          "text": "Does the vehicle have any broken or missing lights, mirrors, or windows?",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Final Details",
+      "questions": [
+        {
+          "id": "catalytic_removed",
+          "text": "Have the catalytic converters been removed or replaced?",
+          "type": "yes_no"
+        },
+        {
+          "id": "interior_missing",
+          "text": "Are any interior parts of the vehicle missing or damaged?",
+          "type": "yes_no"
+        },
+        {
+          "id": "water_fire_damage",
+          "text": "Has the vehicle been subjected to water or fire damage?",
+          "type": "yes_no"
+        },
+        {
+          "id": "no_issues",
+          "text": "None of these issues apply to this vehicle.",
+          "type": "yes_no"
+        }
+      ]
+    },
+    {
+      "category": "Comments",
+      "questions": [
+        {
+          "id": "comments",
+          "text": "Feel free to provide any additional details or information about the vehicle.",
+          "type": "textarea",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalCategories": 9,
+    "totalQuestions": 22,
+    "questionTypes": {
+      "yes_no": 20,
+      "number": 1,
+      "textarea": 1
+    }
+  }
+}
+

@@ -2,66 +2,48 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import ProgressBar from './components/ProgressBar';
+import QuestionStep from './steps/QuestionStep';
 import ZipcodeStep from './steps/ZipcodeStep';
 import ContactStep from './steps/ContactStep';
-import TitleStep from './steps/TitleStep';
-import WheelsStep from './steps/WheelsStep';
-import MechanicalStep from './steps/MechanicalStep';
-import OdometerStep from './steps/OdometerStep';
-import ExteriorDamageStep from './steps/ExteriorDamageStep';
-import ExteriorPartsStep from './steps/ExteriorPartsStep';
-import LightsStep from './steps/LightsStep';
-import FinalDetailsStep from './steps/FinalDetailsStep';
-import CommentsStep from './steps/CommentsStep';
+import QuoteStep from './steps/QuoteStep';
+import { questions } from '../../data/questions';
 import './OfferFlow.scss';
-
-const STEPS = [
-  { id: 'zipcode', title: 'Pickup Location' },
-  { id: 'contact', title: 'Contact Info' },
-  { id: 'title', title: 'Title & Ownership' },
-  { id: 'wheels', title: 'Wheels & Tires' },
-  { id: 'mechanical', title: 'Mechanical Condition' },
-  { id: 'odometer', title: 'Odometer' },
-  { id: 'exterior-damage', title: 'Exterior Damage' },
-  { id: 'exterior-parts', title: 'Exterior Parts' },
-  { id: 'lights', title: 'Lights & Glass' },
-  { id: 'final-details', title: 'Final Details' },
-  { id: 'comments', title: 'Comments' }
-];
 
 const OfferFlow = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const vehicleData = location.state?.vehicleData || {};
 
+  // Calculate total steps: questions + zipcode + contact + quote
+  const totalSteps = questions.length + 3; // questions + zipcode + contact + quote
+  
   const [currentStep, setCurrentStep] = useState(0);
   const [mandatory_fill, setMandatoryFill] = useState(false);
-  const [formData, setFormData] = useState({
-    zipcode: '',
+  
+  // Store answers for all questions
+  const [answers, setAnswers] = useState({});
+  
+  // Zipcode
+  const [zipcode, setZipcode] = useState('');
+  
+  // Contact info
+  const [contactInfo, setContactInfo] = useState({
     firstName: '',
     phone: '',
     email: '',
-    contactMethods: { call: false, text: false, email: false },
-    title: '',
-    wheels: '',
-    mechanical: '',
-    odometer: '',
-    odometerUnknown: false,
-    exteriorDamage: '',
-    exteriorParts: '',
-    lights: '',
-    finalDetails: [],
-    noneApply: false,
-    comments: ''
+    contactMethods: { call: false, text: false, sms: false }
   });
 
-  const updateFormData = (data) => {
-    setFormData((prev) => ({ ...prev, ...data }));
+  // Update answer for a specific question
+  const handleAnswer = (questionId, answer) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [questionId]: answer
+    }));
   };
 
   const handleNext = () => {
-    if (currentStep < STEPS.length - 1) {
+    if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
       window.scrollTo(0, 0);
     }
@@ -77,43 +59,72 @@ const OfferFlow = () => {
   };
 
   const renderStep = () => {
-    const stepProps = {
-      formData,
-      updateFormData,
-      onNext: handleNext,
-      onBack: handleBack,
-      vehicleData,
-      currentStep,
-      totalSteps: STEPS.length,
-      mandatory_fill
-    };
-
-    switch (STEPS[currentStep].id) {
-      case 'zipcode':
-        return <ZipcodeStep {...stepProps} />;
-      case 'contact':
-        return <ContactStep {...stepProps} />;
-      case 'title':
-        return <TitleStep {...stepProps} />;
-      case 'wheels':
-        return <WheelsStep {...stepProps} />;
-      case 'mechanical':
-        return <MechanicalStep {...stepProps} />;
-      case 'odometer':
-        return <OdometerStep {...stepProps} />;
-      case 'exterior-damage':
-        return <ExteriorDamageStep {...stepProps} />;
-      case 'exterior-parts':
-        return <ExteriorPartsStep {...stepProps} />;
-      case 'lights':
-        return <LightsStep {...stepProps} />;
-      case 'final-details':
-        return <FinalDetailsStep {...stepProps} />;
-      case 'comments':
-        return <CommentsStep {...stepProps} />;
-      default:
-        return null;
+    // Show questions one by one
+    if (currentStep < questions.length) {
+      const question = questions[currentStep];
+      // For textarea questions, always start with empty string
+      const answer = question.type === 'textarea' ? '' : (answers[question.id] || '');
+      const isLastQuestion = currentStep === questions.length - 1;
+      
+      return (
+        <QuestionStep
+          question={question}
+          answer={answer}
+          onAnswer={(answer) => handleAnswer(question.id, answer)}
+          onNext={handleNext}
+          onBack={handleBack}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          mandatory_fill={mandatory_fill}
+          isLastQuestion={isLastQuestion}
+        />
+      );
     }
+    
+    // Show zipcode step (after all questions)
+    if (currentStep === questions.length) {
+      return (
+        <ZipcodeStep
+          formData={{ zipcode }}
+          updateFormData={(data) => setZipcode(data.zipcode || '')}
+          onNext={handleNext}
+          onBack={handleBack}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          mandatory_fill={mandatory_fill}
+        />
+      );
+    }
+    
+    // Show contact info step
+    if (currentStep === questions.length + 1) {
+      return (
+        <ContactStep
+          formData={contactInfo}
+          updateFormData={setContactInfo}
+          onNext={handleNext}
+          onBack={handleBack}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          mandatory_fill={mandatory_fill}
+        />
+      );
+    }
+    
+    // Show quote step (final step)
+    if (currentStep === questions.length + 2) {
+      return (
+        <QuoteStep
+          vehicleData={vehicleData}
+          answers={answers}
+          zipcode={zipcode}
+          contactInfo={contactInfo}
+          onBack={handleBack}
+        />
+      );
+    }
+    
+    return null;
   };
 
   return (
@@ -144,4 +155,3 @@ const OfferFlow = () => {
 };
 
 export default OfferFlow;
-

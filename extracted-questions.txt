@@ -1,0 +1,108 @@
+=== FULL TEXT ===
+
+Title and Ownership
+
+Do you have a clean and clear title for the vehicle?
+
+Is the title for this vehicle listed as salvage or reconstructed?
+
+Are you currently missing the vehicle’s title?
+
+Does the vehicle have any outstanding liens that haven't been resolved?
+
+Wheels and Tires
+
+Are all the tires on the vehicle properly inflated and securely mounted?
+
+Are any of the tires flat or deflated?
+
+Is any wheel missing from the vehicle?
+
+Mechanical Condition
+
+Does the vehicle start and run without issues?
+
+Does the vehicle start, but fail to move or drive?
+
+Is the vehicle unable to start or operate?
+
+Odometer Reading
+
+What is the current mileage on the vehicle?
+
+Can you not confirm the vehicle’s mileage at this time?
+
+Exterior Damage
+
+Is the vehicle free from any significant external damage?
+
+Does the vehicle have noticeable damage or wear?
+
+Exterior Parts
+
+Are all body panels fully attached and securely in place?
+
+Are there any loose, detached, or missing body panels on the vehicle?
+
+Lights and Glass
+
+Are all lights, mirrors, and windows intact, with no cracks or missing parts?
+
+Does the vehicle have any broken or missing lights, mirrors, or windows?
+
+Final Details
+
+Have the catalytic converters been removed or replaced?
+
+Are any interior parts of the vehicle missing or damaged?
+
+Has the vehicle been subjected to water or fire damage?
+
+None of these issues apply to this vehicle.
+
+Comments (optional)
+
+Feel free to provide any additional details or information about the vehicle.
+
+
+
+
+
+=== POTENTIAL QUESTIONS ===
+
+1. [Line 1] Title and Ownership
+2. [Line 2] Do you have a clean and clear title for the vehicle?
+3. [Line 3] Is the title for this vehicle listed as salvage or reconstructed?
+4. [Line 4] Are you currently missing the vehicle’s title?
+5. [Line 5] Does the vehicle have any outstanding liens that haven't been resolved?
+6. [Line 6] Wheels and Tires
+7. [Line 7] Are all the tires on the vehicle properly inflated and securely mounted?
+8. [Line 8] Are any of the tires flat or deflated?
+9. [Line 9] Is any wheel missing from the vehicle?
+10. [Line 10] Mechanical Condition
+11. [Line 11] Does the vehicle start and run without issues?
+12. [Line 12] Does the vehicle start, but fail to move or drive?
+13. [Line 13] Is the vehicle unable to start or operate?
+14. [Line 14] Odometer Reading
+15. [Line 15] What is the current mileage on the vehicle?
+16. [Line 16] Can you not confirm the vehicle’s mileage at this time?
+17. [Line 17] Exterior Damage
+18. [Line 18] Is the vehicle free from any significant external damage?
+19. [Line 19] Does the vehicle have noticeable damage or wear?
+20. [Line 20] Exterior Parts
+21. [Line 21] Are all body panels fully attached and securely in place?
+22. [Line 22] Are there any loose, detached, or missing body panels on the vehicle?
+23. [Line 23] Lights and Glass
+24. [Line 24] Are all lights, mirrors, and windows intact, with no cracks or missing parts?
+25. [Line 25] Does the vehicle have any broken or missing lights, mirrors, or windows?
+26. [Line 26] Final Details
+27. [Line 27] Have the catalytic converters been removed or replaced?
+28. [Line 28] Are any interior parts of the vehicle missing or damaged?
+29. [Line 29] Has the vehicle been subjected to water or fire damage?
+30. [Line 30] None of these issues apply to this vehicle.
+31. [Line 31] Comments (optional)
+32. [Line 32] Feel free to provide any additional details or information about the vehicle.
+
+=== HTML FORMAT ===
+
+<p><strong>Title and Ownership</strong></p><ul><li>Do you have a clean and clear title for the vehicle?</li><li>Is the title for this vehicle listed as salvage or reconstructed?</li><li>Are you currently missing the vehicle’s title?</li><li>Does the vehicle have any outstanding liens that haven't been resolved?</li></ul><p><strong>Wheels and Tires</strong></p><ul><li>Are all the tires on the vehicle properly inflated and securely mounted?</li><li>Are any of the tires flat or deflated?</li><li>Is any wheel missing from the vehicle?</li></ul><p><strong>Mechanical Condition</strong></p><ul><li>Does the vehicle start and run without issues?</li><li>Does the vehicle start, but fail to move or drive?</li><li>Is the vehicle unable to start or operate?</li></ul><p><strong>Odometer Reading</strong></p><ul><li>What is the current mileage on the vehicle?</li><li>Can you not confirm the vehicle’s mileage at this time?</li></ul><p><strong>Exterior Damage</strong></p><ul><li>Is the vehicle free from any significant external damage?</li><li>Does the vehicle have noticeable damage or wear?</li></ul><p><strong>Exterior Parts</strong></p><ul><li>Are all body panels fully attached and securely in place?</li><li>Are there any loose, detached, or missing body panels on the vehicle?</li></ul><p><strong>Lights and Glass</strong></p><ul><li>Are all lights, mirrors, and windows intact, with no cracks or missing parts?</li><li>Does the vehicle have any broken or missing lights, mirrors, or windows?</li></ul><p><strong>Final Details</strong></p><ul><li>Have the catalytic converters been removed or replaced?</li><li>Are any interior parts of the vehicle missing or damaged?</li><li>Has the vehicle been subjected to water or fire damage?</li><li>None of these issues apply to this vehicle.</li></ul><p><strong>Comments (optional)</strong></p><ul><li>Feel free to provide any additional details or information about the vehicle.</li></ul>

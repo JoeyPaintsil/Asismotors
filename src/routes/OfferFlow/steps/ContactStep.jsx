@@ -6,7 +6,7 @@ const ContactStep = ({ formData, updateFormData, onNext, onBack, currentStep, to
   const [firstName, setFirstName] = useState(formData.firstName || '');
   const [phone, setPhone] = useState(formData.phone || '');
   const [email, setEmail] = useState(formData.email || '');
-  const [contactMethods, setContactMethods] = useState(formData.contactMethods || { call: false, text: false, email: false });
+  const [contactMethods, setContactMethods] = useState(formData.contactMethods || { call: false, text: false, sms: false });
 
   const handleContactMethodChange = (method) => {
     setContactMethods((prev) => ({
@@ -95,10 +95,10 @@ const ContactStep = ({ formData, updateFormData, onNext, onBack, currentStep, to
             <label className="step-card__checkbox">
               <input
                 type="checkbox"
-                checked={contactMethods.email}
-                onChange={() => handleContactMethodChange('email')}
+                checked={contactMethods.sms}
+                onChange={() => handleContactMethodChange('sms')}
               />
-              <span>Email</span>
+              <span>SMS</span>
             </label>
           </div>
         </div>
@@ -108,7 +108,7 @@ const ContactStep = ({ formData, updateFormData, onNext, onBack, currentStep, to
             Back
           </button>
           <button type="submit" className="step-card__button step-card__button--primary">
-            Continue
+            Get Instant Offer
           </button>
         </div>
 

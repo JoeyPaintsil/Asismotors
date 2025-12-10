@@ -238,14 +238,100 @@
     align-items: center;
   }
 
+  &__odometer-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__odometer-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: white;
+    transition: all 0.2s ease;
+
+    &:focus-within {
+      border-color: $blue-light;
+      box-shadow: 0 0 0 3px rgba(22, 113, 248, 0.1);
+    }
+  }
+
   &__odometer-input {
-    font-size: 32px;
+    flex: 1;
+    font-size: 24px;
     font-weight: 700;
     text-align: center;
-    max-width: 120px;
-    padding: 0;
+    padding: 8px;
     border: none;
     background: transparent;
+    color: $brand-dark;
+    min-width: 0;
+
+    &::placeholder {
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__odometer-suffix {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6b7280;
+    white-space: nowrap;
+  }
+
+  &__odometer-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 8px 0;
+  }
+
+  &__odometer-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $blue-light;
+      background: #f9fafb;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: $blue-light;
+    }
+
+    span {
+      font-size: 16px;
+      color: $brand-dark;
+      flex: 1;
+    }
+
+    &:has(input[type="checkbox"]:checked) {
+      border-color: $blue-light;
+      background: #eff6ff;
+    }
   }
 
   &__odometer-suffix {
@@ -401,11 +487,121 @@
     }
   }
 
+  &__textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $blue-light;
+      box-shadow: 0 0 0 3px rgba(22, 113, 248, 0.1);
+    }
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  &__spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e5e7eb;
+    border-top-color: $blue-light;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__quote {
+    text-align: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__quote-amount {
+    font-size: 48px;
+    font-weight: 800;
+    color: #00b35f;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  &__quote-status {
+    font-size: 14px;
+    color: $brand-dark;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  &__status-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(0, 179, 95, 0.15);
+    color: #00b35f;
+    border: 2px solid rgba(0, 179, 95, 0.3);
+  }
+
+  &__quote-lots {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+    font-style: italic;
+  }
+
+  &__contact-summary {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+    h4 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      font-weight: 700;
+      color: $brand-dark;
+    }
+
+    p {
+      margin: 8px 0;
+      font-size: 14px;
+      color: #6b7280;
+
+      strong {
+        color: $brand-dark;
+        font-weight: 600;
+      }
+    }
+  }
+
   @include respond(mobile) {
     padding: 24px 20px;
 
     &__header h3 {
       font-size: 24px;
+    }
+
+    &__quote-amount {
+      font-size: 36px;
     }
   }
 }

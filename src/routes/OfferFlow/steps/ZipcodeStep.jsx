@@ -17,8 +17,8 @@ const ZipcodeStep = ({ formData, updateFormData, onNext, onBack, currentStep, to
     <div className="step-card">
       <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       <div className="step-card__header">
-        <h3>Pickup Location</h3>
-        <p>Enter the zipcode where your vehicle will be picked up</p>
+        <h3>Zipcode for pickup</h3>
+        <p>Enter the ZIP code for the pickup location. It does not necessarily have to be your home address.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="step-card__form">
@@ -39,7 +39,7 @@ const ZipcodeStep = ({ formData, updateFormData, onNext, onBack, currentStep, to
           <span className="step-card__info-icon">ℹ️</span>
           <div>
             <strong>Keep in mind:</strong>
-            <p>This is the zipcode where the vehicle will be picked up. This may or may not be where you live.</p>
+            <p>This field is for the pickup ZIP code. The pickup point might be separate from your actual living address.</p>
           </div>
         </div>
 

@@ -14,7 +14,7 @@ const TrustBar = () => (
       </div>
       <div className="trust-bar__badges">
         <a
-          href="https://www.google.com/maps/contrib/1122334455/reviews"
+          href="https://share.google/DrmrCOWRWxae1E5oZ"
           target="_blank"
           rel="noreferrer"
           className="trust-bar__google"
