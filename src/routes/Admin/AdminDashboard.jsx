@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { getSubmissions, updateSubmissionStatus, initializeDemoData } from '../../services/submissionService';
+import { getSubmissions, updateSubmissionStatus, initializeDemoData, deleteSubmission } from '../../services/submissionService';
 import SubmissionDetailModal from './SubmissionDetailModal';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
 import './AdminDashboard.scss';
 
 const STATUS_OPTIONS = [
@@ -28,6 +29,8 @@ const AdminDashboard = () => {
   const [statusFilter, setStatusFilter] = useState('All');
   const [loading, setLoading] = useState(true);
   const [selectedSubmission, setSelectedSubmission] = useState(null);
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
     // Check if admin is logged in
@@ -60,6 +63,8 @@ const AdminDashboard = () => {
     } else {
       setFilteredSubmissions(submissions.filter(s => s.status === statusFilter));
     }
+    // Clear selections when filter changes
+    setSelectedIds([]);
   }, [statusFilter, submissions]);
 
   const handleStatusChange = async (id, newStatus) => {
@@ -76,6 +81,55 @@ const AdminDashboard = () => {
     sessionStorage.removeItem('adminLoggedIn');
     navigate('/admin');
   };
+
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedIds(filteredSubmissions.map(s => s.id));
+    } else {
+      setSelectedIds([]);
+    }
+  };
+
+  const handleSelectOne = (id) => {
+    setSelectedIds(prev => {
+      if (prev.includes(id)) {
+        return prev.filter(selectedId => selectedId !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
+  };
+
+  const handleDeleteClick = () => {
+    if (selectedIds.length > 0) {
+      setShowDeleteConfirm(true);
+    }
+  };
+
+  const handleDeleteConfirm = () => {
+    try {
+      selectedIds.forEach(id => {
+        try {
+          deleteSubmission(id);
+        } catch (err) {
+          console.error(`Error deleting submission ${id}:`, err);
+        }
+      });
+      setSelectedIds([]);
+      setShowDeleteConfirm(false);
+      loadSubmissions();
+    } catch (error) {
+      console.error('Error deleting submissions:', error);
+      alert('Failed to delete submissions');
+    }
+  };
+
+  const handleDeleteCancel = () => {
+    setShowDeleteConfirm(false);
+  };
+
+  const isAllSelected = filteredSubmissions.length > 0 && selectedIds.length === filteredSubmissions.length;
+  const isIndeterminate = selectedIds.length > 0 && selectedIds.length < filteredSubmissions.length;
 
   // Calculate status distribution for pie chart
   const statusDistribution = STATUS_OPTIONS.map(status => ({
@@ -135,18 +189,28 @@ const AdminDashboard = () => {
 
           {/* Filter */}
           <div className="admin-dashboard__filter">
-            <label htmlFor="status-filter">Filter by Status:</label>
-            <select
-              id="status-filter"
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="admin-dashboard__filter-select"
-            >
-              <option value="All">All Statuses</option>
-              {STATUS_OPTIONS.map(status => (
-                <option key={status} value={status}>{status}</option>
-              ))}
-            </select>
+            <div className="admin-dashboard__filter-left">
+              <label htmlFor="status-filter">Filter by Status:</label>
+              <select
+                id="status-filter"
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="admin-dashboard__filter-select"
+              >
+                <option value="All">All Statuses</option>
+                {STATUS_OPTIONS.map(status => (
+                  <option key={status} value={status}>{status}</option>
+                ))}
+              </select>
+            </div>
+            {selectedIds.length > 0 && (
+              <button 
+                onClick={handleDeleteClick}
+                className="admin-dashboard__delete-button"
+              >
+                Delete ({selectedIds.length})
+              </button>
+            )}
           </div>
 
           {/* Submissions Table */}
@@ -154,6 +218,17 @@ const AdminDashboard = () => {
             <table className="admin-dashboard__table">
               <thead>
                 <tr>
+                  <th>
+                    <input
+                      type="checkbox"
+                      checked={isAllSelected}
+                      ref={(input) => {
+                        if (input) input.indeterminate = isIndeterminate;
+                      }}
+                      onChange={handleSelectAll}
+                      className="admin-dashboard__checkbox"
+                    />
+                  </th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -166,7 +241,7 @@ const AdminDashboard = () => {
               <tbody>
                 {filteredSubmissions.length === 0 ? (
                   <tr>
-                    <td colSpan="7" className="admin-dashboard__no-data">
+                    <td colSpan="8" className="admin-dashboard__no-data">
                       No submissions found
                     </td>
                   </tr>
@@ -176,17 +251,29 @@ const AdminDashboard = () => {
                       key={submission.id}
                       className="admin-dashboard__table-row"
                       onClick={(e) => {
-                        // Don't open modal if clicking on status column or its dropdown
+                        // Don't open modal if clicking on checkbox, status column, or its dropdown
                         const target = e.target;
-                        const isStatusColumn = target.closest('td:nth-child(6)') || 
+                        const isCheckbox = target.type === 'checkbox' || target.closest('input[type="checkbox"]');
+                        const isStatusColumn = target.closest('td:nth-child(7)') || 
                                              target.closest('.admin-dashboard__status-select') ||
                                              target.tagName === 'SELECT' ||
                                              target.tagName === 'OPTION';
-                        if (!isStatusColumn) {
+                        if (!isCheckbox && !isStatusColumn) {
                           setSelectedSubmission(submission);
                         }
                       }}
                     >
+                      <td 
+                        onClick={(e) => e.stopPropagation()}
+                        className="admin-dashboard__checkbox-cell"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.includes(submission.id)}
+                          onChange={() => handleSelectOne(submission.id)}
+                          className="admin-dashboard__checkbox"
+                        />
+                      </td>
                       <td>{submission.name || 'N/A'}</td>
                       <td>
                         <a 
@@ -273,6 +360,14 @@ const AdminDashboard = () => {
         <SubmissionDetailModal
           submission={selectedSubmission}
           onClose={() => setSelectedSubmission(null)}
+        />
+      )}
+
+      {showDeleteConfirm && (
+        <DeleteConfirmationModal
+          count={selectedIds.length}
+          onConfirm={handleDeleteConfirm}
+          onCancel={handleDeleteCancel}
         />
       )}
     </div>
